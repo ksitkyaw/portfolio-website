@@ -2,12 +2,12 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
-export default function HobbyCard() {
+export default function HobbyCard({ text = "Hard" }) {
   return (
-    <div className="hobbyCardContainer">
+    <div className={`hobbyCardContainer ${text}`}>
       <div className="wrapper">
         <div className="cardTitle">
-          <h2>Easy</h2>
+          <h2>{text}</h2>
         </div>
         <div className="cardContent">
           <p>Solved: 20</p>

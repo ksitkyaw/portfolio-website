@@ -18,8 +18,8 @@ export default function Hobby() {
         </div>
       </div>
       <div className="hobbyCardWrapper">
-        <HobbyCard />
-        <HobbyCard />
+        <HobbyCard text="Easy" />
+        <HobbyCard text="Medium" />
         <HobbyCard />
       </div>
     </>

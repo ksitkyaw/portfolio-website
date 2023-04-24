@@ -1,0 +1,106 @@
+@import "../../styles/variables";
+
+.contactContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $primary-color;
+  background-color: lighten($dark-color, 70);
+
+  .upperContainer {
+    width: 70vw;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      width: 40%;
+      text-align: left;
+      font-size: 48px;
+      letter-spacing: 1.7rem;
+      font-weight: 700;
+    }
+
+    & * {
+      flex-grow: 1;
+    }
+
+    .upperLine {
+      margin-left: 30px;
+      margin-top: 80px;
+      width: 40%;
+      height: 50%;
+      border: 0;
+      border-top: 1px solid $primary-color;
+      border-right: 1px solid $primary-color;
+    }
+  }
+
+  .middleContainer {
+    width: 70vw;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & * {
+      flex-grow: 1;
+    }
+
+    .middleText {
+      width: 50%;
+
+      & p {
+        width: 50%;
+        color: $secondary-color;
+      }
+    }
+
+    .iconList {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      translate: 3.5%;
+    }
+  }
+
+  .lowerContainer {
+    width: 70vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & * {
+      flex-grow: 1;
+    }
+
+    .contactButton {
+      background-color: $primary-color;
+      color: $light-color;
+      padding: 5px;
+      border-radius: 20px;
+      border: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lighten($color: $primary-color, $amount: 5);
+      }
+    }
+
+    .bottomLine {
+      margin-left: 20px;
+      margin-bottom: 50px;
+      width: 40%;
+      height: 50%;
+      border: 0;
+      border-bottom: 1px solid $primary-color;
+      border-right: 1px solid $primary-color;
+    }
+  }
+}

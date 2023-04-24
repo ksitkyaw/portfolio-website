@@ -1,3 +1,4 @@
+import Contact from "./components/Contact/Contact";
 import Header from "./components/Header/Header";
 import Hobby from "./components/Hobby/Hobby";
 import Intro from "./components/Intro/Intro";
@@ -12,6 +13,7 @@ function App() {
       <Intro />
       <Project />
       <Hobby />
+      <Contact />
     </>
   );
 }

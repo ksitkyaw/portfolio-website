@@ -1,4 +1,6 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import "./styles/_variables.scss";
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -9,7 +11,8 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
-}
+} */
+
 /* Box sizing rules */
 *,
 *::before,
@@ -90,6 +93,7 @@ td {
 /* Typography */
 body {
   line-height: 1;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Links */
@@ -108,4 +112,23 @@ ol {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+h1 {
+  font-size: $font-size-xlarge;
+}
+
+h2 {
+  font-size: $font-size-large;
+}
+
+h4 {
+  font-size: $font-size-medium;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+p {
+  font-size: $font-size-base;
+  line-height: 1.2rem;
 }
