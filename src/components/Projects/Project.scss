@@ -1,0 +1,57 @@
+.ProjectContainer {
+  //   background-image: url("./ProjecterBg.png");
+  position: relative;
+  max-width: 100vw;
+  object-fit: cover;
+  .ProjectOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .ProjectImage {
+    width: 100%;
+    height: auto;
+  }
+  .cardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 170px;
+  }
+}
+
+// Project Card styles
+
+.cardContainer {
+  width: 20vw;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(1, 86, 104, 0.5);
+  margin-right: 30px;
+
+  .cardImage {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(217, 217, 217);
+    & h4,
+    p {
+      text-align: center;
+    }
+  }
+}

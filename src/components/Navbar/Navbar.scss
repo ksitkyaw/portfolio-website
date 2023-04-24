@@ -19,11 +19,11 @@
 
   .navbarList {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     & * {
       cursor: pointer;
     }
-    // justify-content: space-between;
-    // align-items: center;
 
     .navbarListItem {
       list-style-type: none;
