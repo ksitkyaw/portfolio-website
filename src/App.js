@@ -1,19 +1,25 @@
-import Contact from "./components/Contact/Contact";
-import Header from "./components/Header/Header";
-import Hobby from "./components/Hobby/Hobby";
-import Intro from "./components/Intro/Intro";
-import Navbar from "./components/Navbar/Navbar";
-import Project from "./components/Projects/Project";
+import AllProjects from "./components/GithubProjects/AllProjects";
+import ErrorPage from "./components/Routes/ErrorPage";
+import Home from "./components/Routes/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: "projects",
+      element: <AllProjects />,
+      errorElement: <ErrorPage />,
+    },
+  ]);
+
   return (
     <>
-      <Navbar />
-      <Header />
-      <Intro />
-      <Project />
-      <Hobby />
-      <Contact />
+      <RouterProvider router={router} />
     </>
   );
 }

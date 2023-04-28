@@ -40,9 +40,15 @@
   align-items: flex-start;
   position: relative;
   margin-right: 100px;
-  background-color: rgba(1, 86, 104, 0.6);
+  background-color: lighten($primary-color, 5);
   color: white;
   margin-bottom: 2rem;
+  box-shadow: 4px 13px 27px 2px rgba(0, 0, 0, 0.57);
+  border-radius: 20px;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.6);
+  }
 
   .wrapper {
     display: flex;
