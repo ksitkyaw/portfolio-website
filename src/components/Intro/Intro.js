@@ -1,16 +1,32 @@
 import React from "react";
 import "./Intro.scss";
+import { motion } from "framer-motion";
 
 export default function Intro() {
   return (
-    <div className="IntroContainer">
+    <motion.div id="about" className="IntroContainer ">
       <img className="IntroImage" src="assets/intro.jpg" alt="bg" />
-      <div className="textContainer">
+      <div className="overlay"></div>
+      <motion.div
+        drag
+        dragConstraints={{
+          top: -50,
+          left: -50,
+          right: 50,
+          bottom: 50,
+        }}
+        className="textContainer"
+      >
         <h2>About Me</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley
+          I'm a self-taught programmer with a background in mining engineering,
+          specializing in cutting-edge web development with a focus on high
+          performance, security, and accessibility. With an inventive mindset
+          and problem-solving skills acquired from my engineering studies, I
+          enjoy pushing the boundaries of what's possible. My deep expertise in
+          front-end technologies and frameworks, combined with my strong
+          teamwork skills, make me the ideal puzzle piece for any developer
+          team.
         </p>
         <h2>Technologies I use</h2>
         <div className="listContainer">
@@ -29,7 +45,7 @@ export default function Intro() {
             <li>Firebase</li>
           </ul>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

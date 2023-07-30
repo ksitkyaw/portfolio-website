@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Project.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-export default function ProjectCard({ url, name, des, rank }) {
+export default function ProjectCard({ url, name, des, rank, html_url }) {
   const [imagesrc, setImagesrc] = useState(null);
   const fetch = false;
 
@@ -34,8 +36,17 @@ export default function ProjectCard({ url, name, des, rank }) {
       </a>
       <div className="cardContent">
         <h4>{name}</h4>
-        <p>{des}</p>
+        <p>
+          {window.screen.width > 600
+            ? des.slice(0, des.length - 1)
+            : `${des.slice(0, 25)}...`}
+        </p>
       </div>
+      <a className="glink" href={html_url} target="_blank" rel="noreferrer">
+        <span className="gicon">
+          <FontAwesomeIcon className="icon" icon={faGithub} />
+        </span>
+      </a>
     </div>
   );
 }

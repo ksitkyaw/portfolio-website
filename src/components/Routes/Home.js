@@ -6,6 +6,7 @@ import Hobby from "./../../components/Hobby/Hobby";
 import Intro from "./../../components/Intro/Intro";
 import Navbar from "./../../components/Navbar/Navbar";
 import Project from "./../../components/Projects/Project";
+import MyProjects from "../NewProject/ProjSection";
 
 export default function Home() {
   return (
@@ -13,8 +14,9 @@ export default function Home() {
       <Navbar />
       <Header />
       <Intro />
-      <Project />
-      <Hobby />
+      {/* <Project /> */}
+      {/* <Hobby /> */}
+      <MyProjects />
       <Contact />
       <Footer />
     </>

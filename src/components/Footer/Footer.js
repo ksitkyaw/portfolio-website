@@ -6,13 +6,13 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             <h3>About Me</h3>
             <p>
               Insert a brief introduction or bio here. You can also include
               links to your social media profiles.
             </p>
-          </div>
+          </div> */}
           <div className="col-md-3">
             <h3>Contact</h3>
             <ul>
@@ -33,10 +33,10 @@ const Footer = () => {
                 <a href="#home">Home</a>
               </li>
               <li>
-                <a href="#portfolio">Portfolio</a>
+                <a href="#project">Portfolio</a>
               </li>
               <li>
-                <a href="#blog">Blog</a>
+                <a href="#about">About</a>
               </li>
             </ul>
           </div>

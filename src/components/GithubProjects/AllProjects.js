@@ -24,17 +24,21 @@ export default function AllProjects() {
   }, []);
 
   return (
-    <div>
-      {repos.map((repo) => {
-        return (
-          <ProjectDetail
-            key={repo.id}
-            url={repo.homepage}
-            name={repo.name}
-            description={repo.description}
-          />
-        );
-      })}
+    <div className="bg-[#015668]">
+      <h1 className="title text-slate-700">All Projects</h1>
+      <div className="gridContainer">
+        {repos.map((repo) => {
+          return (
+            <ProjectDetail
+              key={repo.id}
+              url={repo.homepage}
+              name={repo.name}
+              description={repo.description}
+              html_url={repo.html_url}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

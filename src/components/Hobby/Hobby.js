@@ -5,7 +5,7 @@ import HobbyCard from "./HobbyCard";
 export default function Hobby() {
   return (
     <>
-      <div className="hobbyContainer">
+      <div id="hobby" className="hobbyContainer">
         <h1>My Hobby</h1>
         <div className="hobbyText">
           <p>

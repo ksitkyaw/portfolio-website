@@ -7,7 +7,13 @@
   justify-content: center;
   align-items: center;
   color: $primary-color;
-  background-color: lighten($dark-color, 70);
+  background-color: #a2baba;
+
+  @include mobile {
+    & > * {
+      margin: 2rem;
+    }
+  }
 
   .upperContainer {
     width: 70vw;
@@ -22,6 +28,11 @@
       font-size: 48px;
       letter-spacing: 1.7rem;
       font-weight: 700;
+
+      @include mobile {
+        // font-size: 32px;
+        letter-spacing: 1.3rem;
+      }
     }
 
     & * {
@@ -36,6 +47,10 @@
       border: 0;
       border-top: 1px solid $primary-color;
       border-right: 1px solid $primary-color;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 
@@ -54,7 +69,7 @@
       width: 50%;
 
       & p {
-        width: 50%;
+        width: 80%;
         color: $secondary-color;
       }
     }
@@ -66,6 +81,11 @@
       justify-content: space-between;
       align-items: flex-end;
       translate: 3.5%;
+      transition: all 0.2s ease-out;
+      & .socialIcon:hover {
+        transform: scale(1.4);
+        color: lighten($primary-color, 20);
+      }
     }
   }
 
@@ -81,14 +101,17 @@
     }
 
     .contactButton {
+      text-align: center;
       background-color: $primary-color;
       color: $light-color;
-      padding: 5px;
+      padding-block: 10px;
       border-radius: 20px;
       border: 0;
       cursor: pointer;
+      transition: all 0.2s ease-out;
 
       &:hover {
+        transform: scale(1.05);
         background-color: lighten($color: $primary-color, $amount: 5);
       }
     }
@@ -101,6 +124,10 @@
       border: 0;
       border-bottom: 1px solid $primary-color;
       border-right: 1px solid $primary-color;
+
+      @include mobile {
+        display: none;
+      }
     }
   }
 }

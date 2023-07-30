@@ -10,6 +10,9 @@
   .headImage {
     width: 100%;
     height: 100%;
+    @include mobile {
+      display: none;
+    }
   }
   .textContainer {
     box-sizing: border-box;
@@ -29,6 +32,23 @@
     background-color: rgba(245, 245, 245, 0.5);
     color: #015668;
     box-shadow: 4px 13px 27px 2px rgba(0, 0, 0, 0.57);
+    transition: all 0.2s ease-in;
+
+    @include mobile {
+      position: static;
+      width: 100%;
+      height: 100%;
+      background-color: darken($light-color, 10);
+      border-radius: 0;
+      box-shadow: none;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
 
     h1 {
       margin: 0.5em;
@@ -36,12 +56,44 @@
     }
     h4 {
       margin: 0.6em;
-      font-size: $font-size-medium;
+      font-size: $font-size-large;
     }
     p {
       text-align: center;
-      font-size: $font-size-base;
-      font-family: "Times New Roman";
+      font-size: $font-size-medium;
+      font-family: "Roboto", sans-serif;
+      @include mobile {
+        width: 60%;
+      }
     }
   }
 }
+
+// Media Queries
+// @media (max-width: 768px) {
+//   .textContainer {
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 80%;
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .textContainer {
+//     padding: 0.5em;
+//     border-radius: 30px;
+//     width: 90%;
+//   }
+//   h1 {
+//     font-size: 2rem;
+//   }
+
+//   h4 {
+//     font-size: 1rem;
+//   }
+
+//   p {
+//     font-size: 0.9rem;
+//   }
+// }

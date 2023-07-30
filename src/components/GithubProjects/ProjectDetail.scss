@@ -1,13 +1,30 @@
 @import "./../../styles/variables";
 
 .detailContainer {
-  width: 50vw;
-  height: auto;
+  // width: 50vw;
+  // height: auto;
+  position: relative;
   padding: 30px;
   text-align: center;
   color: $primary-color;
-  margin-bottom: 30px;
-  margin-inline: auto;
+  background-color: darken($light-color, 10);
+  border-radius: 20px;
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.59);
+  transition: all 0.2s ease-in;
+  a .giticon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    & .icon {
+      width: 30px;
+      height: 30px;
+      color: darken($primary-color, 10);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   h2 {
     margin-bottom: 20px;
@@ -15,4 +32,36 @@
   p {
     margin-top: 10px;
   }
+  a {
+    font-size: $font-size-small;
+    font-weight: 400;
+    &:link {
+      color: $primary-color;
+    }
+    &:visited {
+      color: lighten($primary-color, 30);
+    }
+    &:hover {
+      color: lighten($primary-color, 20);
+    }
+  }
+}
+
+.gridContainer {
+  width: 80vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 50px;
+
+  @include mobile {
+    grid-template-columns: auto;
+  }
+}
+
+.title {
+  text-align: center;
+  padding-block: 3rem;
+  color: black;
 }
