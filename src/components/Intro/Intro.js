@@ -1,6 +1,7 @@
 import React from "react";
 import "./Intro.scss";
 import { motion } from "framer-motion";
+import SkillsVisualization from "../SkillsVisualization/SkillsVisualization";
 
 export default function Intro() {
   return (
@@ -28,23 +29,7 @@ export default function Intro() {
           teamwork skills, make me the ideal puzzle piece for any developer
           team.
         </p>
-        <h2>Technologies I use</h2>
-        <div className="listContainer">
-          <ul>
-            <li>Html</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Sass</li>
-            <li>React</li>
-            <li>Redux</li>
-          </ul>
-          <ul>
-            <li>Nextjs</li>
-            <li>Python</li>
-            <li>Django</li>
-            <li>Firebase</li>
-          </ul>
-        </div>
+        <SkillsVisualization />
       </motion.div>
     </motion.div>
   );

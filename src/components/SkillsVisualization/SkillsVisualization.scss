@@ -1,0 +1,342 @@
+@import "../../styles/variables";
+
+.skills-visualization {
+  width: 100%;
+  padding: 2rem 0;
+  
+  h2 {
+    text-align: center;
+    font-size: $font-size-large;
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    
+    @include mobile {
+      font-size: $font-size-medium;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  @include mobile {
+    gap: 0.75rem;
+    padding: 0 1rem;
+  }
+}
+
+.category-section {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  @include theme-transition(background-color, border-color);
+  box-shadow: var(--shadow-sm);
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.skill-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  background: var(--color-bg-card);
+  @include theme-transition(background-color);
+  
+  &:hover {
+    background: var(--color-bg-secondary);
+  }
+  
+  &.active {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-inverse);
+    
+    .category-indicator {
+      color: var(--color-text-inverse);
+    }
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: inherit;
+    
+    @include mobile {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.category-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-secondary);
+  @include theme-transition(color);
+  
+  .skill-count {
+    font-size: 0.875rem;
+    font-weight: 500;
+    
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .expand-icon {
+    font-size: 0.875rem;
+    font-weight: bold;
+    @include theme-transition(transform);
+  }
+}
+
+.skills-list {
+  padding: 0 1.5rem 1.5rem;
+  background: var(--color-bg-secondary);
+  @include theme-transition(background-color);
+  
+  @include mobile {
+    padding: 0 1rem 1rem;
+  }
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @include mobile {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+  @include mobile {
+    gap: 0.5rem;
+  }
+}
+
+.skill-icon {
+  font-size: 1.25rem;
+  
+  @include mobile {
+    font-size: 1.1rem;
+  }
+}
+
+.skill-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  @include theme-transition(color);
+  
+  @include mobile {
+    font-size: 0.9rem;
+  }
+}
+
+.skill-experience {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg-tertiary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  @include theme-transition(color, background-color);
+  
+  @include mobile {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+.skill-percentage {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+  @include theme-transition(color);
+  
+  @include mobile {
+    font-size: 0.9rem;
+    align-self: flex-end;
+  }
+}
+
+.skill-bar-container {
+  position: relative;
+  height: 8px;
+  background: var(--color-bg-tertiary);
+  border-radius: 4px;
+  overflow: hidden;
+  @include theme-transition(background-color);
+  
+  @include mobile {
+    height: 6px;
+  }
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: 4px;
+  position: relative;
+  @include theme-transition(background);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.skill-bar-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skills-summary {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  @include theme-transition(background-color, border-color);
+  box-shadow: var(--shadow-sm);
+  
+  @include mobile {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  
+  @include mobile {
+    gap: 1rem;
+  }
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-bg-secondary);
+  border-radius: 8px;
+  @include theme-transition(background-color);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    @include theme-transition(transform, box-shadow);
+  }
+  
+  @include mobile {
+    padding: 0.75rem;
+  }
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+  @include theme-transition(color);
+  
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  @include theme-transition(color);
+  
+  @include mobile {
+    font-size: 0.8rem;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .skill-bar-fill {
+    background: var(--color-primary);
+  }
+  
+  .skill-category.active {
+    background: var(--color-primary);
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .skill-bar-glow {
+    animation: none;
+  }
+  
+  .stat-item:hover {
+    transform: none;
+  }
+}

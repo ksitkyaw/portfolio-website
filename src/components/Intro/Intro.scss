@@ -26,58 +26,70 @@
   }
   .textContainer {
     box-sizing: border-box;
-    padding: 0.75em;
-    border-radius: 50px;
+    padding: 2rem;
+    border-radius: 24px;
     position: absolute;
-    top: 98px;
-    left: 30vw;
-    // bottom: auto;
-    right: 30vw;
-    width: 40%;
+    top: 80px;
+    left: 15vw;
+    right: 15vw;
+    width: 70%;
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background-color: #015668;
-    opacity: 0.55;
-    color: white;
-    box-shadow: 4px 13px 27px 2px rgba(0, 0, 0, 0.57);
-    transition: all 0.2s ease-in;
+    background: var(--color-bg-overlay);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-xl);
+    @include theme-transition(background, border-color, color, box-shadow);
 
     @include mobile {
       position: static;
       width: 100%;
       height: 100%;
-      background-color: darken($light-color, 10);
+      background: var(--color-bg-primary);
       border-radius: 0;
       box-shadow: none;
+      border: none;
+      backdrop-filter: none;
+      padding: 1.5rem;
     }
 
     &:hover {
-      transform: scale(1.02);
+      transform: scale(1.01);
+      @include theme-transition(transform);
     }
 
     h2 {
-      margin: 0.6em;
+      margin: 0 0 1.5rem 0;
       font-size: $font-size-large;
+      color: var(--color-text-primary);
+      text-align: center;
+      font-weight: 600;
+      @include theme-transition(color);
+      
+      @include mobile {
+        font-size: $font-size-medium;
+        margin-bottom: 1rem;
+      }
     }
+    
     p {
       text-align: center;
       font-size: $font-size-base;
-      line-height: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--color-text-secondary);
+      max-width: 90%;
+      @include theme-transition(color);
+      
       @include mobile {
-        width: 80%;
-      }
-    }
-    .listContainer {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-
-      & > ul {
-        list-style-type: disc;
-        line-height: 1.2rem;
+        width: 100%;
+        font-size: $font-size-small;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
       }
     }
   }
