@@ -6,8 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: $primary-color;
-  background-color: #a2baba;
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+  @include theme-transition(color, background);
 
   @include mobile {
     & > * {
@@ -45,8 +46,9 @@
       width: 40%;
       height: 50%;
       border: 0;
-      border-top: 1px solid $primary-color;
-      border-right: 1px solid $primary-color;
+      border-top: 1px solid var(--color-primary);
+      border-right: 1px solid var(--color-primary);
+      @include theme-transition(border-color);
 
       @include mobile {
         display: none;
@@ -70,7 +72,8 @@
 
       & p {
         width: 80%;
-        color: $secondary-color;
+        color: var(--color-text-secondary);
+        @include theme-transition(color);
       }
     }
 
@@ -81,10 +84,23 @@
       justify-content: space-between;
       align-items: flex-end;
       translate: 3.5%;
-      transition: all 0.2s ease-out;
-      & .socialIcon:hover {
-        transform: scale(1.4);
-        color: lighten($primary-color, 20);
+      
+      & .socialIcon {
+        color: var(--color-text-secondary);
+        @include theme-transition(color, transform);
+        @include focus-visible;
+        
+        &:hover {
+          transform: scale(1.4);
+          color: var(--color-primary);
+        }
+        
+        // Reduced motion support
+        @include reduced-motion {
+          &:hover {
+            transform: none;
+          }
+        }
       }
     }
   }
@@ -102,17 +118,35 @@
 
     .contactButton {
       text-align: center;
-      background-color: $primary-color;
-      color: $light-color;
-      padding-block: 10px;
-      border-radius: 20px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      color: var(--color-text-inverse);
+      padding: 1rem 2rem;
+      border-radius: 12px;
       border: 0;
       cursor: pointer;
-      transition: all 0.2s ease-out;
+      font-weight: 600;
+      @include theme-transition(background, transform, box-shadow);
+      @include focus-visible;
 
       &:hover {
-        transform: scale(1.05);
-        background-color: lighten($color: $primary-color, $amount: 5);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-secondary-hover) 100%);
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+      
+      // Reduced motion support
+      @include reduced-motion {
+        &:hover {
+          transform: none;
+        }
+        
+        &:active {
+          transform: none;
+        }
       }
     }
 
@@ -122,8 +156,9 @@
       width: 40%;
       height: 50%;
       border: 0;
-      border-bottom: 1px solid $primary-color;
-      border-right: 1px solid $primary-color;
+      border-bottom: 1px solid var(--color-primary);
+      border-right: 1px solid var(--color-primary);
+      @include theme-transition(border-color);
 
       @include mobile {
         display: none;

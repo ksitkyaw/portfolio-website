@@ -1,0 +1,164 @@
+@import "../../styles/variables";
+
+.theme-toggle {
+  position: relative;
+  background: none;
+  border: 2px solid var(--color-border);
+  border-radius: 50px;
+  padding: 4px;
+  cursor: pointer;
+  @include theme-transition(all);
+  @include focus-visible;
+
+  &:hover {
+    border-color: var(--color-border-hover);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  // Reduced motion support
+  @include reduced-motion {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    &:active {
+      transform: none;
+    }
+  }
+
+  &__track {
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-light) 0%,
+      var(--color-secondary-light) 100%
+    );
+    border-radius: 25px;
+    position: relative;
+    @include theme-transition(background);
+    
+    // Dark mode track styling
+    [data-theme="dark"] & {
+      background: linear-gradient(
+        135deg,
+        var(--color-bg-secondary) 0%,
+        var(--color-bg-tertiary) 100%
+      );
+    }
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: var(--color-bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    @include theme-transition(transform, 0.3s, cubic-bezier(0.4, 0, 0.2, 1));
+
+    // Move thumb to right in dark mode
+    [data-theme="dark"] & {
+      transform: translateX(30px);
+    }
+
+    // Reduced motion support
+    @include reduced-motion {
+      transition: none;
+    }
+  }
+
+  &__icon {
+    font-size: 14px;
+    color: var(--color-primary);
+    @include theme-transition(color);
+
+    // Icon color in dark mode
+    [data-theme="dark"] & {
+      color: var(--color-secondary);
+    }
+  }
+
+  &__loading-spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--color-border);
+    border-top: 2px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    
+    @include reduced-motion {
+      animation: none;
+      
+      &::after {
+        content: "⚙";
+        display: block;
+        font-size: 12px;
+        color: var(--color-primary);
+        text-align: center;
+        line-height: 1;
+      }
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Screen reader only class
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// High contrast mode support
+@include high-contrast-support;
+
+// Fallback for browsers that don't support CSS custom properties
+@supports not (color: var(--color-primary)) {
+  .theme-toggle {
+    border-color: #{$neutral-300};
+    
+    &:hover {
+      border-color: #{$neutral-400};
+    }
+    
+    &__track {
+      background: linear-gradient(135deg, #{$primary-100} 0%, #{$secondary-100} 100%);
+    }
+    
+    &__thumb {
+      background: #{$neutral-50};
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    &__icon {
+      color: #{$primary-600};
+    }
+  }
+}

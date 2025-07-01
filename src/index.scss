@@ -97,6 +97,14 @@ td {
 body {
   line-height: 1;
   font-family: "Roboto", sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  @include theme-transition(background-color, color);
+  
+  // Reduced motion support
+  @include reduced-motion {
+    transition: none;
+  }
 }
 
 /* Links */
@@ -119,19 +127,42 @@ table {
 
 h1 {
   font-size: $font-size-xlarge;
+  color: var(--color-text-primary);
+  @include theme-transition(color);
 }
 
 h2 {
   font-size: $font-size-large;
+  color: var(--color-text-primary);
+  @include theme-transition(color);
 }
 
 h4 {
   font-size: $font-size-medium;
   font-weight: 500;
   line-height: 1.5rem;
+  color: var(--color-text-secondary);
+  @include theme-transition(color);
 }
 
 p {
   font-size: $font-size-base;
   line-height: 1.2rem;
+  color: var(--color-text-secondary);
+  @include theme-transition(color);
+}
+
+// Enhanced link styles with theme support
+a {
+  color: var(--color-primary);
+  @include theme-transition(color);
+  @include focus-visible;
+  
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+  
+  &:visited {
+    color: var(--color-primary);
+  }
 }

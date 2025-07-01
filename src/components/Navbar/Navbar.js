@@ -2,10 +2,7 @@ import React from "react";
 import "./Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { db } from "../../firebase/firebase";
-import { collection, addDoc } from "firebase/firestore";
-import { Button } from "../../stories/Button";
-import useDownloader from "react-use-downloader";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export default function Navbar() {
   // const { download } = useDownloader();
@@ -39,6 +36,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbarList">
+        <ThemeToggle />
         <a target="_blank" href="https://github.com/ksitkyaw" rel="noreferrer">
           <span className="navbarIcon">
             <FontAwesomeIcon icon={faGithub} />
@@ -48,7 +46,6 @@ export default function Navbar() {
         <a href="mailto:ksithukyaw26@gmail.com" className="navbarButton">
           Get in Touch
         </a>
-        {/* <Button label="Get the fucking Resume" /> */}
       </div>
     </nav>
   );
